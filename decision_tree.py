@@ -1,6 +1,6 @@
 #-------------------------------------------------------------------------
-# AUTHOR: your name
-# FILENAME: title of the source file
+# AUTHOR: Guoli Hao
+# FILENAME: ID3_DecisionTree
 # SPECIFICATION: description of the program
 # FOR: CS 4200- Assignment #1
 # TIME SPENT: how long it took you to complete the assignment
@@ -26,11 +26,33 @@ with open('contact_lens.csv', 'r') as csvfile:
 
 #transform the original training features to numbers and add to the 4D array X. For instance Young = 1, Prepresbyopic = 2, Presbyopic = 3, so X = [[1, 1, 1, 1], [2, 2, 2, 2], ...]]
 #--> add your Python code here
-# X =
+dict = {
+  "Young": 1,
+  "Presbyopic": 2,
+  "Prepresbyopic": 3,
+  "Myope": 1,
+  "Hypermetrope": 2,
+  "Yes": 1,
+  "No": 2,
+  "Normal": 1,
+  "Reduced": 2,
+}
+
+for data in db:{
+  X.append(dict[data[0]], dict[data[1]], dict[data[2]], dict[data[3]])
+}
+
 
 #transform the original training classes to numbers and add to the vector Y. For instance Yes = 1, No = 2, so Y = [1, 1, 2, 2, ...]
 #--> addd your Python code here
-# Y =
+label = {
+  "Yes": 1,
+  "No": 2,
+}
+
+for data in db:{
+  Y.append(label[data[4]])
+}
 
 #fitting the decision tree to the data
 clf = tree.DecisionTreeClassifier(criterion = 'entropy')
